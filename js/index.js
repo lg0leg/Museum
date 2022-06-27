@@ -1,0 +1,9 @@
+import './burger.js';
+import './slider.js';
+import './comparison-images.js';
+import './custom-video-player.js';
+import './range-input.js';
+import './gallery.js';
+import './tickets.js';
+import './map.js';
+import './swiper.js';
