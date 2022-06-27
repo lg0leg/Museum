@@ -1020,6 +1020,17 @@ input[type='range'].styled-slider.slider-progress::-ms-fill-lower {
   padding-top: 50px;
 }
 
+.slide-in {
+  transform: translateY(40%) scale(0.75);
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.slide-in.active {
+  opacity: 1;
+  transform: translateY(0%) scale(1);
+}
+
 /*Gallery style end*/
 
 /*Tickets style start*/
