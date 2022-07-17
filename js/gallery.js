@@ -1,3 +1,5 @@
+const pictureInnerContainer = document.querySelector('.picture-inner-container');
+
 function randomPic() {
   let pics = [
     './assets/img/galery/galery1.jpg',
@@ -24,15 +26,11 @@ function randomPic() {
   shuffle(pics);
 
   pics.map(function (el) {
-    const pictureInnerContainer = document.querySelector(
-      '.picture-inner-container'
-    );
     const img = document.createElement('img');
     img.classList.add('gallery-item');
     img.classList.add('slide-in');
     img.src = el;
-    img.alt = `galery1`;
-    // img.width = '456';
+    img.alt = 'picture';
     pictureInnerContainer.append(img);
   });
 }
@@ -42,17 +40,6 @@ randomPic();
 //плавное появление при прокрутке
 
 const galleryItems = document.querySelectorAll('.gallery-item');
-
-function debounce(f, ms = 100) {
-  let isCooldown = false;
-
-  return function () {
-    if (isCooldown) return;
-    f.apply(this, arguments);
-    isCooldown = true;
-    setTimeout(() => (isCooldown = false), ms);
-  };
-}
 
 const displayScrollElement = (element) => {
   element.classList.add('active');
@@ -65,11 +52,7 @@ const hideScrollElement = (element) => {
 const elementInView = (el, percentageScroll = 100) => {
   const elementTop = el.getBoundingClientRect().top;
 
-  return (
-    elementTop <=
-    (window.innerHeight || document.documentElement.clientHeight) *
-      (percentageScroll / 100)
-  );
+  return elementTop <= (window.innerHeight || document.documentElement.clientHeight) * (percentageScroll / 100);
 };
 
 const handleScrollAnimation = () => {
@@ -87,3 +70,14 @@ window.addEventListener('scroll', () => {
 });
 
 // window.addEventListener('scroll', debounce(handleScrollAnimation));
+
+// function debounce(f, ms = 100) {
+//   let isCooldown = false;
+
+//   return function () {
+//     if (isCooldown) return;
+//     f.apply(this, arguments);
+//     isCooldown = true;
+//     setTimeout(() => (isCooldown = false), ms);
+//   };
+// }
